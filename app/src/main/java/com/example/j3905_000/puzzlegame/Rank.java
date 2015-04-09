@@ -1,7 +1,6 @@
 package com.example.j3905_000.puzzlegame;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +27,7 @@ public class Rank extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.highestscores_layout);
         Rank1 =(EditText)findViewById(R.id.Highest_Score);
         Rank2 =(EditText)findViewById(R.id.Highest_Score2);
         Rank3 =(EditText)findViewById(R.id.Highest_Score3);
@@ -42,8 +42,8 @@ public class Rank extends Activity {
         MainPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(Rank.this,MainActivity.class);
-                startActivity(i);
+
+                finish();
             }
         });
 

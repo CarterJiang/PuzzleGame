@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         RankButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Rank.class);
+                Intent i = new Intent(MainActivity.this,ScoreListActivity.class);
                 startActivity(i);
             }
         });
@@ -34,7 +34,8 @@ public class MainActivity extends ActionBarActivity {
         QuitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                DialogFragment exitFragment = new ExitDialog();
+                exitFragment.show(getFragmentManager(),"ExitDialog");
 
             }
         });

@@ -18,6 +18,8 @@ public class ExitDialog extends DialogFragment {
        theDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
            @Override
            public void onClick(DialogInterface dialog, int which) {
+               getActivity().finish();
+
 
 
 
@@ -29,6 +31,8 @@ public class ExitDialog extends DialogFragment {
 
             }
         });
-        return super.onCreateDialog(savedInstanceState);
+        //return super.onCreateDialog(savedInstanceState);
+        return theDialog.show();
+
     }
 }
