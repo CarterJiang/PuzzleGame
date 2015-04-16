@@ -2,7 +2,9 @@ package com.example.j3905_000.puzzlegame;
 
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -11,6 +13,8 @@ import java.util.ArrayList;
  */
 public class ScoreListFragment extends ListFragment {
     private ArrayList<Score> mScores;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,4 +28,11 @@ public class ScoreListFragment extends ListFragment {
 
 
     }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Score s= (Score)(getListAdapter()).getItem(position);
+    }
+
+
 }

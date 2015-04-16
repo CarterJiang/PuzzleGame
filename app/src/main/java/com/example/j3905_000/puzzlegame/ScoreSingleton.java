@@ -15,9 +15,9 @@ public class ScoreSingleton {
     private ScoreSingleton(Context appContext){
         mAppContext=appContext;
         mScores= new ArrayList<Score>();
-        for(int i=0;i<10;i++){
+        for(int i=1;i<11;i++){
             Score s=new Score();
-            s.setmTitle("Rank #"+i);
+            s.setmTitle("Rank "+i);
             mScores.add(s);
 
         }

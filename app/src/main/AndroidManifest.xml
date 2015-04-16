@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScoreListActivity"></activity>
-        <activity android:name=".Rank"
-            android:label="Highest Scores"
+        <activity android:name=".GameActivity"
+            android:label="Game"
             android:theme="@style/AppTheme"
             />
     </application>

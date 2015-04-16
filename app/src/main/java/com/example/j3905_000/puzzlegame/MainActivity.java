@@ -22,6 +22,13 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         StartButton= (Button)findViewById(R.id.start_button);
+        StartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,GameActivity.class);
+                startActivity(i);
+            }
+        });
         RankButton=(Button)findViewById(R.id.rank_button);
         RankButton.setOnClickListener(new View.OnClickListener() {
             @Override

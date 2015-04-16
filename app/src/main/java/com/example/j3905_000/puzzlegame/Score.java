@@ -9,7 +9,7 @@ public class Score {
     int mScore;
     Date mDate;
     int mRank;
-
+    String mTitle;
 
     public int getRank(){
         return mRank;
@@ -26,7 +26,7 @@ public class Score {
         this.mTitle = mTitle;
     }
 
-    String mTitle;
+
 
 
     public int getmScore() {
@@ -46,4 +46,8 @@ public class Score {
     }
 
 
+    @Override
+    public String toString() {
+        return mTitle;
+    }
 }
