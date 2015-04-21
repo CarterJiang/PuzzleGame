@@ -1,13 +1,13 @@
 package com.example.j3905_000.puzzlegame;
 
-import android.media.Image;
+import android.graphics.Bitmap;
 
 /**
  * Created by j3905_000 on 2015/4/15.
  */
 public class Jewlery {
     private String type;
-    private Image image;
+    private Bitmap image;
 
     public String getType() {
         return type;
@@ -17,11 +17,11 @@ public class Jewlery {
         this.type = type;
     }
 
-    public Image getImage() {
+    public Bitmap getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(Bitmap image) {
         this.image = image;
     }
 }

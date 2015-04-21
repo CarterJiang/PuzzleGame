@@ -13,10 +13,16 @@ import android.view.MenuItem;
  */
 public abstract class SingleFragmentActivity extends ActionBarActivity {
     protected abstract Fragment createFragment();
+    AudioPlayer background= new AudioPlayer();
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //background.play(this);
+
+
         setContentView(R.layout.activity_fragment);
         FragmentManager manager = getSupportFragmentManager();
         Fragment fragment = manager.findFragmentById(R.id.fragmentContainer);
@@ -32,6 +38,8 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+
         return true;
     }
 
@@ -40,13 +48,23 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        else if (id==R.id.exit_the_app){
+      switch (item.getItemId()) {
+             case R.id.BGM:
+
+                if(getTitle()=="Music Off"){
+                   background.pause(this);
+                    setTitle("Music On");
+                }
+                else{
+                    setTitle("Music Off");
+                    background.play(this);
+                }
+                return true;
+
+
+
+            case R.id.exit_the_app:
             DialogFragment exitFragment = new ExitDialog();
             exitFragment.show(getFragmentManager(),"ExitDialog");
 
