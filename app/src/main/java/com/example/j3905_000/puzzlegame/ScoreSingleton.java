@@ -3,6 +3,7 @@ package com.example.j3905_000.puzzlegame;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Created by j3905_000 on 2015/4/9.
@@ -39,7 +40,7 @@ public class ScoreSingleton {
 
     public  boolean saveScores(){
         try{
-            mSerializer.saveScores(mScores);
+           mSerializer.saveScores(mScores);
             return true;
         }
         catch (Exception e){
@@ -58,4 +59,11 @@ public class ScoreSingleton {
         return mScores;
     }
 
+
+    public Score getScore(UUID id){
+        for (Score s: mScores){
+            if(s.getId().equals(id)) return s;
+        }
+        return null;
+    }
 }

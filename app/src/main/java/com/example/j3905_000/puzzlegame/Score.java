@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by j3905_000 on 2015/4/9.
@@ -18,13 +19,16 @@ public class Score {
 
 
     int mScore;
-    Date mDate = new Date();
+    Date mDate ;
+    private UUID mId;
     int mRank;
     String mTitle;
     String name;
 
     public Score(){
         Score s= new Score();
+        mId = UUID.randomUUID();
+        mDate = new Date();
     }
 
     public  Score(JSONObject json) throws JSONException{
@@ -87,6 +91,11 @@ public class Score {
     public void setmDate(Date mDate) {
         this.mDate = mDate;
     }
+
+    public UUID getId() {
+        return mId;
+    }
+
 
 
     @Override

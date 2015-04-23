@@ -56,7 +56,7 @@ public class ScoreJSONSerializer {
             return scores;
     }
 
-    public void saveScore(ArrayList<Score> scores) throws JSONException,IOException{
+    public void saveScores(ArrayList<Score> scores) throws JSONException,IOException{
         JSONArray array = new JSONArray();
         for(Score s: scores)
             array.put(s.toJSON());

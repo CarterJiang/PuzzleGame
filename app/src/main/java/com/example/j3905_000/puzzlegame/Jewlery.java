@@ -8,6 +8,16 @@ import android.graphics.Bitmap;
 public class Jewlery {
     private String type;
     private Bitmap image;
+    boolean needEliminate;
+    public boolean getNeedEliminate() {
+        return needEliminate;
+    }
+
+    public void setNeedEliminate(boolean needEliminate) {
+        this.needEliminate = needEliminate;
+    }
+
+
 
     public String getType() {
         return type;

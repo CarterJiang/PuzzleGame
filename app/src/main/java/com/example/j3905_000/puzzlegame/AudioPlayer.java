@@ -3,7 +3,7 @@ package com.example.j3905_000.puzzlegame;
 import android.content.Context;
 import android.media.MediaPlayer;
 
-public class AudioPlayer {
+public class AudioPlayer extends MediaPlayer {
 
     private MediaPlayer mPlayer;
     
@@ -14,6 +14,12 @@ public class AudioPlayer {
         }
     }
 
+    @Override
+    public void pause() throws IllegalStateException {
+        super.pause();
+    }
+
+
     public void play(Context c) {
         if(mPlayer==null) {
             stop();
@@ -23,6 +29,7 @@ public class AudioPlayer {
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             public void onCompletion(MediaPlayer mp) {
                 stop();
+                mPlayer.start();
 
             }
         });
@@ -35,9 +42,15 @@ public class AudioPlayer {
 
 
     }
+    public void resume(Context c){
+        mPlayer.start();
+        mPlayer.seekTo(mPlayer.getCurrentPosition());
+    }
+
 
     public void pause(Context c){
         mPlayer.pause();
+
     }
     
     public boolean isPlaying() {

@@ -51,14 +51,19 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
 
       switch (item.getItemId()) {
              case R.id.BGM:
+                 //item.setTitle("Music Off");
 
-                if(getTitle()=="Music Off"){
-                   background.pause(this);
-                    setTitle("Music On");
+
+                if(item.getTitle().equals("Music Off")){
+                   background.pause(getApplicationContext());
+                    item.setTitle("Music On");
                 }
                 else{
-                    setTitle("Music Off");
-                    background.play(this);
+                    item.setTitle("Music Off");
+                    background.resume(getApplicationContext());
+
+
+
                 }
                 return true;
 
