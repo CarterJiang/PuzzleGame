@@ -179,7 +179,7 @@ public class GameView extends View {
             ArrayList<Jewlery> same = new ArrayList<Jewlery>();
             same.add(jewlery[i][0]);
             for (int j = 1; j < cols; ++j) {
-                if (jewlery[i][j].getType() == jewlery[i][j-1].getType()) {
+                if (jewlery[i][j].getType().equals(jewlery[i][j-1].getType())) {
                     same.add(jewlery[i][j]);
                 } else {
                     if (same.size() >= 3) {
@@ -211,7 +211,7 @@ public class GameView extends View {
         ArrayList<Jewlery> same = new ArrayList<Jewlery>();
         same.add(jewlery[0][j]);
         for (int i = 1; i < rows; ++i) {
-            if (jewlery[i][j].getType() == jewlery[i - 1][j].getType()) {
+            if (jewlery[i][j].getType().equals(jewlery[i - 1][j].getType())) {
                 same.add(jewlery[i][j]);
             } else {
                 if (same.size() >= 3) {
