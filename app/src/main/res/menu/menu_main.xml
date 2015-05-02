@@ -2,10 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
   <group android:checkableBehavior="single">
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/BGM"
+        android:title="@string/music_off"
+
+
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom|withText" />
     <item android:id="@+id/exit_the_app"
         android:title="@string/option_exit"
         app:showAsAction="ifRoom|withText"

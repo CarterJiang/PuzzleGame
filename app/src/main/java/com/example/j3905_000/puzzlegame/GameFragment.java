@@ -18,17 +18,26 @@ public class GameFragment extends Fragment {
 
     TextView mPoint;
     TextView mCountdown;
-    int p;
+
+
+
+
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.game_fragment, container, false);
+    //    GameView mView =new GameView(getActivity());
 
-        mPoint =(TextView)v.findViewById(R.id.score_point);
+     //  mView.setData(new Bundle());
+
+
+
 
 
         mCountdown=(TextView)v.findViewById(R.id.countdown_timer);
+        mPoint=(TextView)v.findViewById(R.id.score_point);
+        mPoint.setText("0");
 
         new CountDownTimer(60000, 1000) {
 

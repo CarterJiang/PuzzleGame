@@ -1,11 +1,13 @@
 package com.example.j3905_000.puzzlegame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
+import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -34,6 +36,16 @@ public class GameView extends View {
     float cellHeight;
     float cellWidth;
     Score score;
+    public static final String EXTRA_POINT= "com.bignerdranch.android.criminalintent.scorepoint";
+
+
+
+        Bundle bundle= new Bundle();
+
+    public void setData(Bundle data)
+    {
+        bundle =data;
+    }
 
 
     Jewlery[][] jewleries = new Jewlery[rows][cols];
@@ -71,11 +83,11 @@ public class GameView extends View {
         checkrow(jewleries);
         checkcol(jewleries);
         replace(jewleries);
-
-
-
-
-
+        checkrow(jewleries);
+        checkcol(jewleries);
+        replace(jewleries);
+        Intent z =new Intent(getContext(),GameFragment.class);
+        z.putExtra(GameView.EXTRA_POINT, ScorePoint);
 
         // TODO: consider storing these as member variables to reduce
         // allocations per draw cycle.
@@ -139,7 +151,8 @@ public class GameView extends View {
             for(int j=0;j<cols;++j){
                 if(jewlery[i][j].getNeedEliminate()==true){
                     randomlyDraw(jewlery[i][j]);
-                    jewlery[i][j].setNeedEliminate(false);
+                   checkcol(jewleries);
+                    checkrow(jewleries);
                     ScorePoint+=20;
 
                 }
@@ -161,15 +174,14 @@ public class GameView extends View {
     }
 
 
-    void checkrow(Jewlery[][] jewlery) {
-        for (int i = 0; i < rows; ++i) {
+    void checkcol(Jewlery[][] jewlery) {
+        for( int i = 0; i<rows;++i) {
             ArrayList<Jewlery> same = new ArrayList<Jewlery>();
             same.add(jewlery[i][0]);
             for (int j = 1; j < cols; ++j) {
-                if (jewlery[i][j].getType() == jewlery[i][j - 1].getType()) {
+                if (jewlery[i][j].getType() == jewlery[i][j-1].getType()) {
                     same.add(jewlery[i][j]);
-                }
-                else {
+                } else {
                     if (same.size() >= 3) {
                         for (int k = 0; k < same.size(); ++k) {
                             same.get(k).setNeedEliminate(true);
@@ -179,7 +191,6 @@ public class GameView extends View {
                     else {for (int k = 0; k < same.size(); ++k) {
                         same.get(k).setNeedEliminate(false);
                     }}
-
                     same.clear();
                     same.add(jewlery[i][j]);
                 }
@@ -187,17 +198,15 @@ public class GameView extends View {
             if (same.size() >= 3) {
                 for (int k = 0; k < same.size(); ++k) {
                     same.get(k).setNeedEliminate(true);
+                }
             }
 
-            }
         }
 
+    }
 
 
-       }
-
-
-    void checkcol(Jewlery[][] jewlery) {
+    void checkrow(Jewlery[][] jewlery) {
     for( int j = 0; j<cols;++j) {
         ArrayList<Jewlery> same = new ArrayList<Jewlery>();
         same.add(jewlery[0][j]);
