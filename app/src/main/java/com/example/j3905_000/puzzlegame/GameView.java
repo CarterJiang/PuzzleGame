@@ -77,12 +77,8 @@ public class GameView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-      checkrow(jewleries);
-      checkcol(jewleries);
-      replace(jewleries);
-        checkrow(jewleries);
-        checkcol(jewleries);
-        replace(jewleries);
+
+
         checkrow(jewleries);
         checkcol(jewleries);
         replace(jewleries);
